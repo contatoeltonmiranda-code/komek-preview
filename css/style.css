@@ -316,44 +316,28 @@ section{position:relative}
   .home-map iframe{height:320px}
 }
 
-/* ---- Timeline vertical (secao O que fazemos) ---- */
-.svc-timeline{position:relative;max-width:940px;margin:44px auto 0;padding:8px 0}
-.svc-timeline::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-50%);background:linear-gradient(180deg,var(--preto) 0%,var(--laranja) 100%);border-radius:3px}
-.tl-item{position:relative;width:50%;box-sizing:border-box;padding:0 46px;margin-bottom:30px}
-.tl-item.left{left:0;text-align:right}
-.tl-item.right{left:50%;text-align:left}
-.tl-card{display:inline-block;text-align:left;max-width:340px;background:var(--creme-2);border:1px solid var(--cinza-borda);border-radius:14px;padding:16px 20px;font-size:15px;font-weight:500;line-height:1.4;color:var(--texto);box-shadow:var(--sombra-card);transition:transform .25s,box-shadow .25s}
-.tl-card:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
-.tl-node{position:absolute;top:16px;width:40px;height:40px;border-radius:50%;background:var(--grad-laranja);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 5px 16px rgba(254,94,0,.4);border:3px solid var(--branco);transition:transform .6s cubic-bezier(.22,.61,.36,1),opacity .6s cubic-bezier(.22,.61,.36,1)}
-.tl-node svg{width:18px;height:18px;stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.tl-item.left .tl-node{right:-20px}
-.tl-item.right .tl-node{left:-20px}
-.tl-item.left .tl-card::after,.tl-item.right .tl-card::after{content:"";position:absolute;top:26px;width:30px;height:2px;background:var(--laranja);opacity:.5}
-.tl-item.left .tl-card::after{right:-30px}
-.tl-item.right .tl-card::after{left:-30px}
-/* reveal direcional */
-.tl-item.left.sr-hidden{opacity:0;transform:translateX(-18px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
-.tl-item.right.sr-hidden{opacity:0;transform:translateX(18px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
-.tl-item.sr-hidden .tl-node{opacity:0;transform:scale(.6)}
-.tl-item.sr-visible .tl-node{opacity:1;transform:scale(1)}
-.tl-item.sr-visible{opacity:1;transform:none}
-.tl-item.left.sr-visible,.tl-item.right.sr-visible{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.tl-item.left.sr-hidden,.tl-item.right.sr-hidden{opacity:1;transform:none}.tl-item.sr-hidden .tl-node{opacity:1;transform:none}}
-@media(max-width:760px){
-  .svc-timeline{max-width:520px;margin-top:34px}
-  .svc-timeline::before{left:19px}
-  .tl-item,.tl-item.left,.tl-item.right{width:100%;left:0;text-align:left;padding:0 0 0 52px;margin-bottom:22px}
-  .tl-item.left .tl-node,.tl-item.right .tl-node{left:0;right:auto}
-  .tl-card{max-width:none;display:block;width:100%}
-  .tl-item.left .tl-card::after,.tl-item.right .tl-card::after{left:-22px;right:auto;width:22px}
-  .tl-item.left.sr-hidden,.tl-item.right.sr-hidden{transform:translateX(16px)}
+/* ---- Grid de servicos (secao O que fazemos) ---- */
+.svc-grid-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:24px auto 0}
+.svc-item{display:flex;align-items:center;gap:12px;background:var(--creme-2);border:1px solid var(--cinza-borda);border-radius:12px;padding:12px 16px;box-shadow:var(--sombra-card);transition:transform .25s,box-shadow .25s}
+.svc-item:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.svc-check{flex:none;width:26px;height:26px;border-radius:50%;background:var(--grad-laranja);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(254,94,0,.4)}
+.svc-check svg{width:13px;height:13px;stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.svc-item p{margin:0;font-size:13.5px;font-weight:500;line-height:1.32;color:var(--texto)}
+@media(max-width:980px){
+  .svc-grid-list{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .svc-grid-list{grid-template-columns:1fr;gap:10px;margin-top:20px}
 }
 
 /* ---- Video de fundo no hero (home + paginas internas) ---- */
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;border:0}
-.hero-overlay{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,10,10,.86) 0%,rgba(10,10,10,.64) 100%)}
+.hero-overlay{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.80) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.18) 100%)}
 .hero-overlay--dark{background:linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.82) 100%)}
 .hero .hero-grid{z-index:2}
+@media(max-width:768px){
+  .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.70) 55%,rgba(0,0,0,.80) 100%)}
+}
 .page-hero .wrap{position:relative;z-index:2}
 @media (prefers-reduced-motion:reduce){.hero-video{display:none}}
 

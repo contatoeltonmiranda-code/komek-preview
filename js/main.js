@@ -51,7 +51,7 @@
 
   // ---- Scroll reveal ----
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var targets=document.querySelectorAll('.sec-head,.diff-card,.about-img,.about-text,.serv-card,.prod-card,.why-item,.seg-card,.logo-card,.tst-card,.stat,.cta-band .wrap,.cat-item,.list-item,.prose,.svc-list li,.tl-item,.svc-aside,.form-card,.info-card,.qc-item');
+  var targets=document.querySelectorAll('.sec-head,.diff-card,.about-img,.about-text,.serv-card,.prod-card,.why-item,.seg-card,.logo-card,.tst-card,.stat,.cta-band .wrap,.cat-item,.list-item,.prose,.svc-list li,.svc-item,.svc-aside,.form-card,.info-card,.qc-item');
   if(reduce||!('IntersectionObserver' in window)){
     targets.forEach(function(el){el.classList.add('sr-visible');});
   }else{
